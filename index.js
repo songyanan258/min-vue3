@@ -1,14 +1,5 @@
-import { effectWatch, reactive } from './reactive/index.js'
-//声明一个响应式对象
-let a = reactive({
-  age: 19
-})
-let b;
-effectWatch(() => {
-  //响应式函数
+import { createApp } from './core/index.js'
+import App from './App.js'
 
-  b = a.age + 10
-  console.log(b)
-})
-//响应式对象的值发生改变以后，执行响应式函数
-a.age = 30
+//这个地方执行的是挂载操作，引入我们的APP根组件
+createApp(App).mount(document.querySelector('#app'))
